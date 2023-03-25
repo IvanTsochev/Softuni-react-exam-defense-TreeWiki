@@ -1,0 +1,16 @@
+.footer {
+    background-color: #008000;
+    /* Dark green footer background color */
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    /* Make the footer fixed to the bottom of the viewport */
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    /* Make the footer span the entire width of the viewport */
+}
+
+.para {
+    color: aliceblue;
+}

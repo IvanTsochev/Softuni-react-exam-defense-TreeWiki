@@ -1,0 +1,38 @@
+h1 {
+    color: #008000; /* Dark green heading color */
+    text-align: center;
+    margin-top: 20px;
+}
+
+.main {
+    margin: auto;
+    width: 80%;
+    padding: 20px;
+    background-color: #ffffff; /* White content background color */
+    box-shadow: 5px 5px 5px #888888; /* Add shadow to content */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+p {
+    color: #008000; /* Dark green paragraph text color */
+    font-size: 18px;
+    line-height: 1.5;
+    margin-top: 20px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    padding: 20px;
+}
+
+.imgContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}

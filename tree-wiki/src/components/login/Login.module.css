@@ -1,0 +1,64 @@
+form {
+    margin: auto;
+    margin-top: 50px;
+    width: 30%;
+    padding: 20px;
+    background-color: #f2f2f2;
+    /* White content background color */
+    box-shadow: 5px 5px 5px #888888;
+    /* Add shadow to content */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+}
+
+h1 {
+    color: #008000;
+    /* Dark green heading color */
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 36px;
+    text-shadow: 2px 2px 2px #888888;
+    /* Add shadow to heading */
+}
+
+input[type="text"],
+input[type="password"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px #888888;
+    /* Add shadow to input fields */
+    width: 100%;
+    font-size: 18px;
+    color: #555555;
+    /* Gray text color */
+}
+
+input[type="submit"] {
+    background-color: #008000;
+    /* Dark green button background color */
+    color: #ffffff;
+    /* White button text color */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px #888888;
+    /* Add shadow to button */
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    /* Add smooth transition effect */
+}
+
+input[type="submit"]:hover {
+    background-color: #08e60f;
+    /* White button background on hover */
+    color: #008000;
+    /* Dark green button text on hover */
+    transform: scale(1.1);
+    /* Add slight button scale effect on hover */
+}

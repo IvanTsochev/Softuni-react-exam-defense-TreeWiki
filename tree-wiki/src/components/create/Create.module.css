@@ -1,0 +1,59 @@
+.createForm {
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.25);
+    max-width: 500px;
+    margin: auto;
+}
+
+h1 {
+    color: #008000;
+    /* Dark green heading color */
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 36px;
+    text-shadow: 2px 2px 2px #888888;
+    /* Add shadow to heading */
+}
+
+.createForm label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.createForm input,
+.createForm select,
+.createForm textarea {
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.createForm select {
+    background-color: #ffffff;
+}
+
+.createForm button[type="submit"] {
+    background-color: #008000;
+    /* Dark green button background color */
+    color: #ffffff;
+    /* White button text color */
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    /* Add smooth transition effect */
+}
+
+.createForm button[type="submit"]:hover {
+    background-color: #006600;
+    /* Lighter green button background color on hover */
+}

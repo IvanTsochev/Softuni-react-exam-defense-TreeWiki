@@ -1,0 +1,40 @@
+header {
+    background-color: #008000;
+    /* Dark green navigation background color */
+    color: #ffffff;
+    /* White navigation text color */
+    padding: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+nav li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+nav li:last-child {
+    margin-right: 0;
+}
+
+nav a {
+    color: #ffffff;
+    /* White navigation text color */
+    text-decoration: none;
+    font-size: 18px;
+    transition: all 0.3s ease-in-out;
+    /* Add smooth transition effect */
+}
+
+nav a:hover {
+    background-color: #ffffff;
+    /* Change the background color on hover */
+    color: #008000;
+    /* Change the text color on hover */
+}
