@@ -1,26 +1,57 @@
+import { useForm } from '../../hooks/useForm';
+
 import styles from './Create.module.css';
 
-export const Create = () => {
+const CreateFormKeys = {
+    Title: 'title',
+    Info: 'info',
+    ImgURL: 'imgURL'
+};
+
+export const Create = ({
+    onCreateGameSubmit,
+}) => {
+    const {values, changeHandler, onSubmit} = useForm({
+        [CreateFormKeys.Title] : '',
+        [CreateFormKeys.Info] : '',
+        [CreateFormKeys.ImgURL] : '',
+    }, onCreateGameSubmit);
+
     return (
         <div>
             <h1>Create</h1>
 
-            <form className={styles.createForm}>
+            <form method='POST' className={styles.createForm} onSubmit={onSubmit}>
                 <label htmlFor="title">Title:</label>
-                <input type="text" id="title" name="title" required />
+                <input 
+                type="text" 
+                id="title" 
+                name={CreateFormKeys.Title} 
+                value={values[CreateFormKeys.Title]}
+                onChange={changeHandler}
+                required
+                />
 
-                    <label htmlFor="info">Information:</label>
-                    <textarea id="info" name="info" required></textarea>
+                <label htmlFor="info">Information:</label>
+                <textarea 
+                id="info" 
+                name={CreateFormKeys.Info} 
+                value={values[CreateFormKeys.Info]}
+                onChange={changeHandler}
+                required>
+                </textarea>
 
-                    <label htmlFor="type">Type:</label>
-                    <select id="type" name="type" required>
-                        <option value="">--Select a type--</option>
-                        <option value="type1">Type 1</option>
-                        <option value="type2">Type 2</option>
-                        <option value="type3">Type 3</option>
-                    </select>
+                <label htmlFor="imgURL">Photo URL:</label>
+                <input 
+                type="text" 
+                id="imgURL" 
+                name={CreateFormKeys.ImgURL}
+                value={values[CreateFormKeys.ImgURL]}
+                onChange={changeHandler}
+                required
+                />
 
-                    <button type="submit">Create</button>
+                <button type="submit">Create</button>
             </form>
         </div>
     )

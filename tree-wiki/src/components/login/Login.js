@@ -3,7 +3,8 @@ import { useContext } from 'react';
 import { AuthContext } from '../../context/AuthContext';
 import { useForm } from '../../hooks/useForm';
 
-import './Login.module.css';
+
+import styles from './Login.module.css';
 
 const LoginFormKeys = {
     Email: 'email',
@@ -19,23 +20,26 @@ export const Login = () => {
 
     return (
         <div>
-            <form onSubmit={onSubmit}>
+            <form method='POST' className={styles.login} onSubmit={onSubmit}>
                 <h1>Login</h1>
 
+                <label htmlFor="email">Email:</label>
                 <input 
                     type="text" 
                     name={LoginFormKeys.Email} 
-                    placeholder="Email"
+                    placeholder="pesho@abv.bg"
                     value={values[LoginFormKeys.Email]}
                     onChange={changeHandler}
+                    required
                 />
 
+                <label htmlFor="password">Password:</label>
                 <input 
                     type="password" 
                     name={LoginFormKeys.Password} 
-                    placeholder="Password"
                     value={values[LoginFormKeys.Password]}
-                    onChange={changeHandler} 
+                    onChange={changeHandler}
+                    required
                 />
 
                 <input type="submit" value="Login" />

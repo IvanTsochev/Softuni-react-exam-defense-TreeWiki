@@ -13,6 +13,12 @@ form {
     border-radius: 10px;
 }
 
+.login label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
 h1 {
     color: #008000;
     /* Dark green heading color */
