@@ -1,3 +1,8 @@
+import { Routes, Route } from 'react-router-dom';
+import { useState } from "react";
+
+import { AuthContext } from './context/AuthContext';
+
 import { Footer } from "./components/footer/Footer";
 import { Login } from "./components/login/Login";
 import { Header } from "./components/header/Header";
@@ -7,26 +12,34 @@ import { Create } from "./components/create/Create";
 import { Details } from "./components/details/Details";
 import { Catalog } from "./components/catalog/Catalog";
 
-import { Routes, Route } from 'react-router-dom';
+
 
 function App() {
+    const [auth, setAuth] = useState({});
+
+    const onLoginSubmit = async (data) => {
+        console.log(data);
+    };
+
     return (
-        <div className="App">
-            <Header />
+        <AuthContext.Provider value={{onLoginSubmit}}>
+            <div className="App">
+                <Header />
 
-            <main>
-                <Routes>
-                    <Route path='/' element={<Home />} />
-                    <Route path='/login' element={<Login />} />
-                    <Route path='/register' element={<Register />} />
-                    <Route path='/create-tree' element={<Create />} />
-                    <Route path='/catalog' element={<Catalog />} />
-                    <Route path='/catalog/:gameId' element={<Details />} />
-                </Routes>
-            </main>
+                <main>
+                    <Routes>
+                        <Route path='/' element={<Home />} />
+                        <Route path='/login' element={<Login />} />
+                        <Route path='/register' element={<Register />} />
+                        <Route path='/create-tree' element={<Create />} />
+                        <Route path='/catalog' element={<Catalog />} />
+                        <Route path='/catalog/:gameId' element={<Details />} />
+                    </Routes>
+                </main>
 
-            <Footer />
-        </div>
+                <Footer />
+            </div>
+        </AuthContext.Provider>
     );
 }
 
