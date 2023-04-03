@@ -9,13 +9,13 @@ const CreateFormKeys = {
 };
 
 export const Create = ({
-    onCreateGameSubmit,
+    onCreateArticleSubmit,
 }) => {
     const {values, changeHandler, onSubmit} = useForm({
         [CreateFormKeys.Title] : '',
         [CreateFormKeys.Info] : '',
         [CreateFormKeys.ImgURL] : '',
-    }, onCreateGameSubmit);
+    }, onCreateArticleSubmit);
 
     return (
         <div>

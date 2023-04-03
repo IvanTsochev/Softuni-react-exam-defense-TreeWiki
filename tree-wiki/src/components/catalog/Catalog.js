@@ -1,21 +1,24 @@
+import { CatalogItem } from './catalogItem/CatalogItem';
+
 import styles from './Catalog.module.css';
 
-export const Catalog = () => {
+export const Catalog = ({
+    articles
+}) => {
     return (
         <div className={styles.CatalogContainer}>
-            <h2 className={styles.CatalogTitle}>Catalog Title</h2>
-            <div className={styles.CatalogEntities}>
-                <div className={styles.CatalogEntity}>
-                    <img src="example-image-3.jpg" alt="aaa3" className={styles.CatalogImage} />
-                    <h3 className={styles.CatalogEntityTitle}>Entity Title 3</h3>
-                    <button className={styles.CatalogEntityButton}>Views</button>
-                </div>
+            <h2 className={styles.CatalogTitle}>Three articles</h2>
 
-                <div className={styles.CatalogEntity}>
-                    <img src="example-image-3.jpg" alt="aaa3" className={styles.CatalogImage} />
-                    <h3 className={styles.CatalogEntityTitle}>Entity Title 3</h3>
-                    <button className={styles.CatalogEntityButton}>Views</button>
-                </div>
+            <div className={styles.CatalogEntities}>
+
+                {articles.map(x => 
+                    <CatalogItem key={x._id} {...x} />   
+                )}
+
+                {articles.lenght === 0 && (
+                    <h3>No articles yet</h3>
+                )}
+
             </div>
         </div>
     );
