@@ -1,10 +1,12 @@
 import { CatalogItem } from './catalogItem/CatalogItem';
 
 import styles from './Catalog.module.css';
+import { useContext } from 'react';
+import { ArticleContext } from '../../context/ArticleContext';
 
-export const Catalog = ({
-    articles
-}) => {
+export const Catalog = () => {
+    const {articles} = useContext(ArticleContext);
+
     return (
         <div className={styles.CatalogContainer}>
             <h2 className={styles.CatalogTitle}>Three articles</h2>
@@ -16,7 +18,7 @@ export const Catalog = ({
                 )}
 
                 {articles.lenght === 0 && (
-                    <h3>No articles yet</h3>
+                    <h4>No articles yet</h4>
                 )}
 
             </div>

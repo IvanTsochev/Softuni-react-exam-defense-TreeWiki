@@ -1,4 +1,7 @@
+import { useContext } from 'react';
 import { useForm } from '../../hooks/useForm';
+
+import { ArticleContext } from '../../context/ArticleContext';
 
 import styles from './Create.module.css';
 
@@ -8,9 +11,8 @@ const CreateFormKeys = {
     ImgURL: 'imgURL'
 };
 
-export const Create = ({
-    onCreateArticleSubmit,
-}) => {
+export const Create = () => {
+    const {onCreateArticleSubmit} = useContext(ArticleContext);
     const {values, changeHandler, onSubmit} = useForm({
         [CreateFormKeys.Title] : '',
         [CreateFormKeys.Info] : '',

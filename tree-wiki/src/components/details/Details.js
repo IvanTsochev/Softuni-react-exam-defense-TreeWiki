@@ -5,8 +5,10 @@ import { articleServiceFactory } from '../../services/treeArticle';
 import { AuthContext } from '../../context/AuthContext';
 
 import styles from './Details.module.css';
+import { ArticleContext } from '../../context/ArticleContext';
 
 export const Details = () => {
+    const { deleteArticle } = useContext(ArticleContext);
     const { userId, token } = useContext(AuthContext);
     const { articleId } = useParams();
     const articleService = articleServiceFactory(token);
@@ -23,7 +25,9 @@ export const Details = () => {
     const isOwner = article._ownerId === userId;
 
     const onDeleteClick = async () => {
-        await articleService.delete(article._id);
+        await articleService.delete(articleId);
+
+        deleteArticle(articleId);
 
         navigate('/catalog');
     };

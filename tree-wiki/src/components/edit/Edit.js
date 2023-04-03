@@ -6,6 +6,7 @@ import { AuthContext } from '../../context/AuthContext';
 import { articleServiceFactory } from '../../services/treeArticle';
 
 import styles from './Edit.module.css';
+import { ArticleContext } from '../../context/ArticleContext';
 
 const EditFormKeys = {
     Title: 'title',
@@ -13,11 +14,10 @@ const EditFormKeys = {
     ImgURL: 'imgURL'
 };
 
-export const Edit = ({
-    onEditArticleSubmit
-}) => {
+export const Edit = () => {
     const { token } = useContext(AuthContext);
-    const {articleId} = useParams();
+    const { onEditArticleSubmit } = useContext(ArticleContext);
+    const { articleId } = useParams();
     const articleService = articleServiceFactory(token);
 
     const {values, changeHandler, onSubmit, changeValues} = useForm({
