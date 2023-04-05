@@ -22,8 +22,7 @@ A page where the register form for non-users is located.
 ## Private part
 
 * Profile -> 
-
-
+A page with information for the login user.
 * Create Class -> 
 A page with a form for creation of articles.
 * Edit Class -> 

@@ -9,16 +9,18 @@ const RegisterFormKeys = {
     Username: 'username',
     Email: 'email',
     Password: 'password',
-    ConfirmPass: 'confirmPassword'
+    ConfirmPass: 'confirmPassword',
+    Gender: 'gender'
 };
 
 export const Register = () => {
     const { onRegisterSubmit } = useContext(AuthContext);
     const { values, changeHandler, onSubmit } = useForm({
-        [RegisterFormKeys.Username] : '',
-        [RegisterFormKeys.Email] : '',
-        [RegisterFormKeys.Password] : '',
-        [RegisterFormKeys.ConfirmPass] : '',
+        [RegisterFormKeys.Username]: '',
+        [RegisterFormKeys.Email]: '',
+        [RegisterFormKeys.Password]: '',
+        [RegisterFormKeys.ConfirmPass]: '',
+        [RegisterFormKeys.Gender]: '',
     }, onRegisterSubmit);
 
     return (
@@ -30,7 +32,7 @@ export const Register = () => {
                 <input
                     type="text"
                     id="username"
-                    name="username"
+                    name={[RegisterFormKeys.Username]}
                     placeholder="pesho"
                     required
                     onChange={changeHandler}
@@ -41,7 +43,7 @@ export const Register = () => {
                 <input
                     type="email"
                     id="email"
-                    name="email"
+                    name={[RegisterFormKeys.Email]}
                     placeholder="pesho@abv.bg"
                     required
                     onChange={changeHandler}
@@ -52,7 +54,7 @@ export const Register = () => {
                 <input
                     type="password"
                     id="password"
-                    name="password"
+                    name={[RegisterFormKeys.Password]}
                     required
                     onChange={changeHandler}
                     value={values[RegisterFormKeys.Password]}
@@ -62,10 +64,20 @@ export const Register = () => {
                 <input
                     type="password"
                     id="confirmPassword"
-                    name="confirmPassword"
+                    name={[RegisterFormKeys.ConfirmPass]}
                     required
                     onChange={changeHandler}
                     value={values[RegisterFormKeys.ConfirmPass]}
+                />
+
+                <label htmlFor="confirmPassword">Gender:</label>
+                <input
+                    type="text"
+                    name={[RegisterFormKeys.Gender]}
+                    required
+                    onChange={changeHandler}
+                    placeholder="male, female, other"
+                    value={values[RegisterFormKeys.Gender]}
                 />
 
                 <input type="submit" value="Register" />

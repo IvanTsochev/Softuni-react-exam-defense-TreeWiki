@@ -16,6 +16,7 @@ import { ArticleProvider } from './context/ArticleContext';
 import { RouteGuard } from './components/common/RouteGuard';
 import { PageNotFound } from './components/404/404';
 import { HomeDetails } from './components/homeDetails/Homedetails';
+import { Profile } from './components/profile/Profile';
 
 function App() {
     return (
@@ -34,6 +35,7 @@ function App() {
                             <Route path='/catalog/:articleId' element={<Details />} />
 
                             <Route element={<RouteGuard />}>
+                                <Route path='/profile' element={<Profile />} />
                                 <Route path='/create-article' element={<Create  />} />
                                 <Route path='/catalog/:articleId/edit' element={<Edit  />} />
                                 <Route path='/logout' element={<Logout />} />

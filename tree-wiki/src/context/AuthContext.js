@@ -28,6 +28,7 @@ export const AuthProvider = ({
 
     const onRegisterSubmit = async (data) => {
         const { confirmPassword, ...registerData } = data;
+
         if (confirmPassword !== registerData.password) {
             return;
         }
@@ -57,6 +58,7 @@ export const AuthProvider = ({
         token: auth.accessToken,
         userEmail: auth.email,
         username: auth.username,
+        gender: auth.gender,
         isAuthenticated: !!auth.accessToken,
     };
 

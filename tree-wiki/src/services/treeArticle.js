@@ -21,18 +21,12 @@ export const articleServiceFactory = (token) => {
     const create = async (articleData, name) => {
         const result = await request.post(baseUrl, articleData);
     
-        console.log(result);
-    
         return result;
     };
 
-    const deleteArticle = async (articleId) => {
-        await request.delete(`${baseUrl}/${articleId}`);
-    };
+    const deleteArticle = async (articleId) => request.delete(`${baseUrl}/${articleId}`);
 
-    const edit = async (articleId, data) => {
-        await request.put(`${baseUrl}/${articleId}`, data);
-    };
+    const edit = async (articleId, data) => request.put(`${baseUrl}/${articleId}`, data);
 
     return {
         create,
