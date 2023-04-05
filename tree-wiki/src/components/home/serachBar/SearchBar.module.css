@@ -1,0 +1,41 @@
+.SearchBar {
+    display: flex;
+    align-items: center;
+}
+
+.SearchBar form {
+    display: flex;
+    align-items: center;
+}
+
+.formConteiner form{
+    margin: auto;
+    width: 30%;
+    padding: 20px;
+    flex-direction: column;
+    border-radius: 10px;
+}
+
+.SearchBar input[type="text"] {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    margin-right: 5px;
+    width: 300px;
+    background-color: transparent;
+  }
+
+.SearchBar button[type="submit"] {
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.SearchBar button[type="submit"]:hover {
+    background-color: #3e8e41;
+}
