@@ -46,6 +46,7 @@ export const Edit = () => {
                 value={values[EditFormKeys.Title]}
                 onChange={changeHandler}
                 required
+                minLength="3"
                 />
 
                 <label htmlFor="info">Information:</label>
@@ -54,7 +55,8 @@ export const Edit = () => {
                 name={EditFormKeys.Info} 
                 value={values[EditFormKeys.Info]}
                 onChange={changeHandler}
-                required>
+                required
+                minLength="5">
                 </textarea>
 
                 <label htmlFor="imgURL">Photo URL:</label>
@@ -65,6 +67,7 @@ export const Edit = () => {
                 value={values[EditFormKeys.ImgURL]}
                 onChange={changeHandler}
                 required
+                minLength="8"
                 />
 
                 <button type="submit">Edit</button>

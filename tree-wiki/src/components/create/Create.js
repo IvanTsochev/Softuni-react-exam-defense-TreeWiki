@@ -32,6 +32,7 @@ export const Create = () => {
                 value={values[CreateFormKeys.Title]}
                 onChange={changeHandler}
                 required
+                minLength="3"
                 />
 
                 <label htmlFor="info">Information:</label>
@@ -40,7 +41,8 @@ export const Create = () => {
                 name={CreateFormKeys.Info} 
                 value={values[CreateFormKeys.Info]}
                 onChange={changeHandler}
-                required>
+                required
+                minLength="5">
                 </textarea>
 
                 <label htmlFor="imgURL">Photo URL:</label>
@@ -51,6 +53,7 @@ export const Create = () => {
                 value={values[CreateFormKeys.ImgURL]}
                 onChange={changeHandler}
                 required
+                minLength="8"
                 />
 
                 <button type="submit">Create</button>

@@ -30,7 +30,7 @@ h1 {
     /* Add shadow to heading */
 }
 
-input[type="text"],
+input[type="email"],
 input[type="password"] {
     padding: 10px;
     margin-bottom: 10px;

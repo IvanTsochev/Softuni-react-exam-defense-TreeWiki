@@ -9,7 +9,7 @@ export const CatalogItem = ({
 }) => {
     return (
         <div className={styles.CatalogEntity}>
-            <img src={imgURL} alt="aaa3" className={styles.CatalogImage} />
+            <img src={imgURL} alt="Article photo" className={styles.CatalogImage} />
             <h3 className={styles.CatalogEntityTitle}>{title}</h3>
             <Link to={`/catalog/${_id}`} className={styles.CatalogEntityButton}>View</Link>
         </div>

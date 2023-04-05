@@ -9,7 +9,7 @@ export const HomeItem = ({
 }) => {
     return (
         <div className={styles.CatalogEntity}>
-            <img src={imgURL} alt="aaa3" className={styles.CatalogImage} />
+            <img src={imgURL} alt="Tree picture" className={styles.CatalogImage} />
             <h3 className={styles.CatalogEntityTitle}>{title}</h3>
             <Link to={`/home/${_id}`} className={styles.CatalogEntityButton}>Read</Link>
         </div>

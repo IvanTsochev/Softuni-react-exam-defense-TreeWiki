@@ -37,6 +37,7 @@ export const Register = () => {
                     required
                     onChange={changeHandler}
                     value={values[RegisterFormKeys.Username]}
+                    minLength="2"
                 />
 
                 <label htmlFor="email">Email:</label>
@@ -48,6 +49,7 @@ export const Register = () => {
                     required
                     onChange={changeHandler}
                     value={values[RegisterFormKeys.Email]}
+                    minLength="5"
                 />
 
                 <label htmlFor="password">Password:</label>
@@ -58,6 +60,7 @@ export const Register = () => {
                     required
                     onChange={changeHandler}
                     value={values[RegisterFormKeys.Password]}
+                    minLength="2"
                 />
 
                 <label htmlFor="confirmPassword">Confirm Password:</label>
@@ -66,11 +69,12 @@ export const Register = () => {
                     id="confirmPassword"
                     name={[RegisterFormKeys.ConfirmPass]}
                     required
+                    minLength="2"
                     onChange={changeHandler}
                     value={values[RegisterFormKeys.ConfirmPass]}
                 />
 
-                <label htmlFor="confirmPassword">Gender:</label>
+                <label >Gender:</label>
                 <input
                     type="text"
                     name={[RegisterFormKeys.Gender]}

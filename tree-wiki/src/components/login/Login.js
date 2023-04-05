@@ -25,12 +25,13 @@ export const Login = () => {
 
                 <label htmlFor="email">Email:</label>
                 <input 
-                    type="text" 
+                    type="email" 
                     name={LoginFormKeys.Email} 
                     placeholder="pesho@abv.bg"
                     value={values[LoginFormKeys.Email]}
                     onChange={changeHandler}
                     required
+                    minLength="5"
                 />
 
                 <label htmlFor="password">Password:</label>
@@ -40,6 +41,7 @@ export const Login = () => {
                     value={values[LoginFormKeys.Password]}
                     onChange={changeHandler}
                     required
+                    minLength="2"
                 />
 
                 <input type="submit" value="Login" />
