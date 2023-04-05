@@ -25,11 +25,16 @@ export const Details = () => {
     const isOwner = article._ownerId === userId;
 
     const onDeleteClick = async () => {
-        await articleService.delete(articleId);
+        // eslint-disable-next-line no-restricted-globals
+        const deleteAns = confirm(`Are you sure you want to delete ${article.title}`);
 
-        deleteArticle(articleId);
+        if(deleteAns) {
+            await articleService.delete(articleId);
 
-        navigate('/catalog');
+            deleteArticle(articleId);
+    
+            navigate('/catalog');
+        }
     };
 
     return (

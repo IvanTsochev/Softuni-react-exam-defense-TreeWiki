@@ -13,6 +13,9 @@ import { Details } from "./components/details/Details";
 import { Catalog } from "./components/catalog/Catalog";
 import { Edit } from './components/edit/Edit';
 import { ArticleProvider } from './context/ArticleContext';
+import { RouteGuard } from './components/common/RouteGuard';
+import { PageNotFound } from './components/404/404';
+import { HomeDetails } from './components/homeDetails/Homedetails';
 
 function App() {
     return (
@@ -24,13 +27,19 @@ function App() {
                     <main>
                         <Routes>
                             <Route path='/' element={<Home />} />
+                            <Route path='/home/:treeId' element={<HomeDetails />} />
                             <Route path='/login' element={<Login />} />
                             <Route path='/register' element={<Register />} />
-                            <Route path='/logout' element={<Logout />} />
-                            <Route path='/create-article' element={<Create  />} />
                             <Route path='/catalog' element={<Catalog  />} />
                             <Route path='/catalog/:articleId' element={<Details />} />
-                            <Route path='/catalog/:articleId/edit' element={<Edit  />} />
+
+                            <Route element={<RouteGuard />}>
+                                <Route path='/create-article' element={<Create  />} />
+                                <Route path='/catalog/:articleId/edit' element={<Edit  />} />
+                                <Route path='/logout' element={<Logout />} />
+                            </Route>
+
+                            <Route path='*' element= {<PageNotFound />} />
                         </Routes>
                     </main>
 

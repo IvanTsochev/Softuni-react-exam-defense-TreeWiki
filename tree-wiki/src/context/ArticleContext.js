@@ -41,16 +41,11 @@ export const ArticleProvider = ({
         setArticles(state => state.filter(article => article._id !== articleId));
     };
 
-    const getArticle = (articleId) => {
-        return articles.find(article => article._id === articleId);
-    };
-
     const contextValues = {
         articles,
         onCreateArticleSubmit,
         onEditArticleSubmit,
         deleteArticle,
-        getArticle
     };
 
     return (

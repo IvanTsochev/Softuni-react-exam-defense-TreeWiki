@@ -9,7 +9,7 @@ export const Catalog = () => {
 
     return (
         <div className={styles.CatalogContainer}>
-            <h2 className={styles.CatalogTitle}>Three articles</h2>
+            <h2 className={styles.CatalogTitle}>Tree articles</h2>
 
             <div className={styles.CatalogEntities}>
 
@@ -17,8 +17,8 @@ export const Catalog = () => {
                     <CatalogItem key={x._id} {...x} />   
                 )}
 
-                {articles.lenght === 0 && (
-                    <h4>No articles yet</h4>
+                {articles.length === 0 && (
+                    <h3>No articles yet</h3>
                 )}
 
             </div>

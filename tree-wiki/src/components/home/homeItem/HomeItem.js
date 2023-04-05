@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 
-import styles from '../Catalog.module.css';
+import styles from '../Home.module.css';
 
-export const CatalogItem = ({
+export const HomeItem = ({
     _id,
     title,
     imgURL,
@@ -11,7 +11,7 @@ export const CatalogItem = ({
         <div className={styles.CatalogEntity}>
             <img src={imgURL} alt="aaa3" className={styles.CatalogImage} />
             <h3 className={styles.CatalogEntityTitle}>{title}</h3>
-            <Link to={`/catalog/${_id}`} className={styles.CatalogEntityButton}>View</Link>
+            <Link to={`/home/${_id}`} className={styles.CatalogEntityButton}>Read</Link>
         </div>
     );
 }

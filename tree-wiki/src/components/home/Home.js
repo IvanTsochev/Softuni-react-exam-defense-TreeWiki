@@ -1,16 +1,38 @@
+import { useState, useEffect } from 'react';
+
+import { HomeItem } from './homeItem/HomeItem';
+import { treeServiceFactory } from '../../services/treeService';
+
 import styles from './Home.module.css';
 
 export const Home = () => {
+    const [trees, setTrees] = useState([]);
+
+    const treeService = treeServiceFactory();
+
+    useEffect(() => {
+        treeService.getAllTrees()
+            .then(result => {
+                setTrees(result)
+            })
+    }, []);
+
     return (
-    <main>
-        <div className={styles.main}>
-            <h1>Welcome to My Simple Home Page!</h1>
-            <div className={styles.imgContainer}>
-                <img src="https://dummyimage.com/600x400/008000/ffffff&text=Image+1" alt="aaa" />
-                <img src="https://dummyimage.com/600x400/008000/ffffff&text=Image+2" alt="aaa" />
+        <div>
+            <div className={styles.main}>
+                <h1>Welcome to TreeWiki</h1>
             </div>
-            <p>Here is some more text. Lorem ipsum dolor sit amet, consectetur</p>
+
+            <div className={styles.main}>
+                {trees.map(x =>
+                    <HomeItem key={x._id} {...x} />
+                )}
+
+                {trees.length === 0 && (
+                    <h3>No trees yet</h3>
+                )}
+                </div>
+
         </div>
-    </main>
     )
 }
