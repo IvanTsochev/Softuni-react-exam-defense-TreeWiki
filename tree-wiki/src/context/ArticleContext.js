@@ -22,19 +22,27 @@ export const ArticleProvider = ({
     }, []);
 
     const onCreateArticleSubmit = async (data) => {
-        const newArticle = await articleService.create({...data, publisher: username});
+        try {
+            const newArticle = await articleService.create({...data, publisher: username});
         
-        setArticles(state => [...state, newArticle]);
+            setArticles(state => [...state, newArticle]);
 
-        navigate('/catalog');
+            navigate('/catalog');
+        }catch {
+            navigate('/404');
+        }
     };
 
     const onEditArticleSubmit = async (values) => {
-        const result = await articleService.edit(values._id, values);
+        try {
+            const result = await articleService.edit(values._id, values);
 
-        setArticles(state => state.map(x => x._id === values._id ? result : x))
+            setArticles(state => state.map(x => x._id === values._id ? result : x))
 
-        navigate(`/catalog/${values._id}`);
+            navigate(`/catalog/${values._id}`);
+        } catch (error) {
+            navigate('/404');
+        }
     }
 
     const deleteArticle = (articleId) => {

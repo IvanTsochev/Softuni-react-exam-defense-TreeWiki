@@ -3,24 +3,32 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 
 import { articleServiceFactory } from '../../services/treeArticle';
 import { AuthContext } from '../../context/AuthContext';
+import { ArticleContext } from '../../context/ArticleContext';
 
 import styles from './Details.module.css';
-import { ArticleContext } from '../../context/ArticleContext';
 
 export const Details = () => {
     const { deleteArticle } = useContext(ArticleContext);
-    const { userId, token } = useContext(AuthContext);
+    const { userId, token, isAuthenticated } = useContext(AuthContext);
     const { articleId } = useParams();
     const articleService = articleServiceFactory(token);
     const [article, setArticle] = useState({});
+    const [liked, setLiked] = useState(false)
     const navigate = useNavigate();
+    
 
     useEffect(() => {
         articleService.getOne(articleId)
             .then(result => {
-                setArticle(result);
+                if (result.likedBy.includes(userId)) {
+                    setArticle(result);
+                    setLiked(true);
+                }
+                else{
+                    setArticle(result);
+                }
             })
-    }, [articleId]);
+    }, [articleId, liked]);
 
     const isOwner = article._ownerId === userId;
 
@@ -37,6 +45,11 @@ export const Details = () => {
         }
     };
 
+    const onLikeClick = async () => {
+        await articleService.like(articleId, userId);
+        setLiked(true);
+    };
+
     return (
         <div className={styles.detailsContainer}>
             <h2 className={styles.detailsTitle}>{article.title}</h2>
@@ -45,9 +58,15 @@ export const Details = () => {
             </div>
             <p className={styles.detailsInfo}>{article.info}</p>
             <p className={styles.detailsInfo}>Publisher: {article.publisher}</p>
+            <p>Likes:{article.like}</p>
+
             {isOwner && (<div className={styles.detailsButtons}>
                 <Link to={`/catalog/${article._id}/edit`} className={styles.detailsEditButton}>Edit</Link>
                 <button className={styles.detailsDeleteButton} onClick={onDeleteClick}>Delete</button>
+            </div>)}
+
+            {(!isOwner && isAuthenticated && !liked) && (<div className={styles.detailsButtons}>
+                <button className={styles.detailsDeleteButton} onClick={onLikeClick}>Like</button>
             </div>)}
             
         </div>

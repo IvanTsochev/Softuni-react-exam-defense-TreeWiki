@@ -10,7 +10,7 @@ export const AuthProvider = ({
     children,
 }) => {
     const navigate = useNavigate();
-    const [auth, setAuth] = useLocalStorage('auth' , {});
+    const [auth, setAuth] = useLocalStorage('auth', {});
 
     const authService = authServiceFactory(auth.accessToken);
 
@@ -22,7 +22,7 @@ export const AuthProvider = ({
 
             navigate('/catalog');
         } catch (error) {
-            console.log('There is a problem');
+            navigate('/404');
         }
     };
 
@@ -40,7 +40,7 @@ export const AuthProvider = ({
 
             navigate('/catalog');
         } catch (error) {
-            console.log('There is a problem');
+            navigate('/404');
         }
     };
 
